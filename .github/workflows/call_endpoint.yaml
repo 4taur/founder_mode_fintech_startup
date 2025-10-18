@@ -1,0 +1,42 @@
+name: Run Script from Daytona Hackathon on PR
+
+# 1. Define the Trigger Event (in founder_mode_fintech_startup)
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+jobs:
+  execute_external_script:
+    runs-on: ubuntu-latest
+    
+    steps:
+      # Step 1: Checkout the main repository (4taur/founder_mode_fintech_startup)
+      # This is the code that triggered the PR.
+      - name: Checkout Founder Mode Repo
+        uses: actions/checkout@v4
+        with:
+          path: ./main-repo
+
+      # Step 2: Checkout the external repository (4taur/daytona_hackathon)
+      # This is the repo containing the script you want to run.
+      - name: Checkout Daytona Script Repo
+        uses: actions/checkout@v4
+        with:
+          repository: 4taur/daytona_hackathon # The full external repo name
+          path: ./script-repo
+          # Since it is a public repository, no token is required.
+
+      # Step 3: Set up the Python environment
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      # (Optional) Step 4: Install dependencies for the script
+      # If xx.py requires external packages, uncomment and update this.
+      # - name: Install Dependencies
+      #   run: pip install -r ./script-repo/requirements.txt 
+
+      # Step 5: Run the Python script from the checked-out external repo
+      - name: Execute xx.py from Daytona Hackathon Repo
+        run: python ./script-repo/xx.py
