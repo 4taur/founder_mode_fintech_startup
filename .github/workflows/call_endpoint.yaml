@@ -38,5 +38,5 @@ jobs:
       #   run: pip install -r ./script-repo/requirements.txt 
 
       # Step 5: Run the Python script from the checked-out external repo
-      - name: Execute xx.py from Daytona Hackathon Repo
-        run: python ./script-repo/xx.py
+      - name: Execute .py from Daytona Hackathon Repo
+        run: python ./script-repo/run_compliance_auditor.py
