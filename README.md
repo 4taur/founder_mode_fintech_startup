@@ -26,3 +26,6 @@ This is a minimal Python codebase simulating a fintech startup's credit scoring 
 - `app.py`: Streamlit UI for interactive use.
 
 Note: This is for educational/hackathon purposes only; do not use in production.
+
+"sample"
+"sda"
