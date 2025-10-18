@@ -1,0 +1,1 @@
+# founder_mode_fintech_startup
